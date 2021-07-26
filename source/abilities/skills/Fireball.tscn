@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://source/abilities/skills/Fireball.gd" type="Script" id=1]
+[ext_resource path="res://audio/sfx/fire003.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/animations/skills/Fireball001.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.4116, 4.15822 )
+
+[node name="Fireball" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 4.03674, 0.305135 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." instance=ExtResource( 3 )]
+scale = Vector2( 1.11706, 1.11706 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = -20.0
+pitch_scale = 3.2
+attenuation = 0.329877
+bus = "SFX"

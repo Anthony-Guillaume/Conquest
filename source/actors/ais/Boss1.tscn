@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/godot.png" type="Texture" id=1]
+[ext_resource path="res://source/actors/ais/Boss1.gd" type="Script" id=2]
+[ext_resource path="res://addons/btree/script/btree.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 19 )
+
+[node name="Boss1" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 1, 0, 0.282353, 1 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LogicTree" type="Node" parent="."]
+script = ExtResource( 3 )
+tree = {
+"connection": [ {
+"from": "root",
+"from_port": 0,
+"to": "task",
+"to_port": 0
+} ],
+"nodes": [ {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_shoot_at_player",
+"offset": Vector2( 228.32, -103.328 ),
+"params": [  ],
+"size": Vector2( 347, 85 ),
+"values": [  ]
+},
+"name": "task",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( -100, -160 ),
+"size": Vector2( 95.9999, 82.0005 )
+},
+"name": "root",
+"type": 0
+}, {
+"child": [  ],
+"data": {
+"fn": "task_shoot_at_player",
+"offset": Vector2( 228.32, -103.328 ),
+"params": [  ],
+"size": Vector2( 347, 85 ),
+"values": [  ]
+},
+"name": "task",
+"type": 1
+} ],
+"root": {
+"child": [ {
+"child": [  ],
+"data": {
+"fn": "task_shoot_at_player",
+"offset": Vector2( 228.32, -103.328 ),
+"params": [  ],
+"size": Vector2( 347, 85 ),
+"values": [  ]
+},
+"name": "task",
+"type": 1
+} ],
+"data": {
+"offset": Vector2( -100, -160 ),
+"size": Vector2( 95.9999, 82.0005 )
+},
+"name": "root",
+"type": 0
+}
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

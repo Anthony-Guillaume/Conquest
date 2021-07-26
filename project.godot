@@ -1,0 +1,451 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://source/actors/Actor.gd"
+}, {
+"base": "Resource",
+"class": "ActorStatistics",
+"language": "GDScript",
+"path": "res://source/actors/statistics/ActorStatistics.gd"
+}, {
+"base": "BaseAi",
+"class": "AggressiveBoss",
+"language": "GDScript",
+"path": "res://source/actors/ais/AggressiveBoss.gd"
+}, {
+"base": "Node",
+"class": "Animator",
+"language": "GDScript",
+"path": "res://source/actors/Animator.gd"
+}, {
+"base": "Resource",
+"class": "Attribute",
+"language": "GDScript",
+"path": "res://source/actors/statistics/Attribute.gd"
+}, {
+"base": "Resource",
+"class": "AttributeModifier",
+"language": "GDScript",
+"path": "res://source/actors/statistics/AttributeModifier.gd"
+}, {
+"base": "Actor",
+"class": "BaseAi",
+"language": "GDScript",
+"path": "res://source/actors/ais/BaseAi.gd"
+}, {
+"base": "Node2D",
+"class": "BaseLevel",
+"language": "GDScript",
+"path": "res://source/levels/BaseLevel.gd"
+}, {
+"base": "Actor",
+"class": "BasePlayer",
+"language": "GDScript",
+"path": "res://source/actors/players/BasePlayer.gd"
+}, {
+"base": "Fireball",
+"class": "BigFireball",
+"language": "GDScript",
+"path": "res://source/abilities/skills/BigFireball.gd"
+}, {
+"base": "BaseAi",
+"class": "Boss1",
+"language": "GDScript",
+"path": "res://source/actors/ais/Boss1.gd"
+}, {
+"base": "StatusEffect",
+"class": "BurningEffect",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/BurningEffect.gd"
+}, {
+"base": "Area2D",
+"class": "Charge",
+"language": "GDScript",
+"path": "res://source/abilities/skills/Charge.gd"
+}, {
+"base": "Timer",
+"class": "Cooldown",
+"language": "GDScript",
+"path": "res://source/abilities/Cooldown.gd"
+}, {
+"base": "StatusEffect",
+"class": "CurseOfWeakness",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/CurseOfWeakness.gd"
+}, {
+"base": "Node",
+"class": "Dash",
+"language": "GDScript",
+"path": "res://source/abilities/skills/Dash.gd"
+}, {
+"base": "Node2D",
+"class": "DebugDrawNode",
+"language": "GDScript",
+"path": "res://source/levels/levelHelpers/DebugDrawNode.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://source/objects/doors/Door.gd"
+}, {
+"base": "Node2D",
+"class": "DoorAndKey",
+"language": "GDScript",
+"path": "res://source/objects/doors/DoorAndKey.gd"
+}, {
+"base": "Node2D",
+"class": "DoorAndKillable",
+"language": "GDScript",
+"path": "res://source/objects/doors/DoorAndKillable.gd"
+}, {
+"base": "BaseAi",
+"class": "Fighter",
+"language": "GDScript",
+"path": "res://source/actors/ais/Fighter.gd"
+}, {
+"base": "Area2D",
+"class": "FireArea",
+"language": "GDScript",
+"path": "res://source/abilities/skills/FireArea.gd"
+}, {
+"base": "Area2D",
+"class": "FireCrush",
+"language": "GDScript",
+"path": "res://source/abilities/skills/FireCrush.gd"
+}, {
+"base": "Node2D",
+"class": "FireCrushing",
+"language": "GDScript",
+"path": "res://source/abilities/skills/FireCrushing.gd"
+}, {
+"base": "Area2D",
+"class": "FireNova",
+"language": "GDScript",
+"path": "res://source/abilities/skills/FireNova.gd"
+}, {
+"base": "SkillSet",
+"class": "FireSkillSet",
+"language": "GDScript",
+"path": "res://source/abilities/skillSets/FireSkillSet.gd"
+}, {
+"base": "Area2D",
+"class": "Fireball",
+"language": "GDScript",
+"path": "res://source/abilities/skills/Fireball.gd"
+}, {
+"base": "StatusEffect",
+"class": "FrozenEffect",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/FrozenEffect.gd"
+}, {
+"base": "Control",
+"class": "HUD",
+"language": "GDScript",
+"path": "res://source/hud/HUD.gd"
+}, {
+"base": "Area2D",
+"class": "HealthBox",
+"language": "GDScript",
+"path": "res://source/lootables/HealthBox.gd"
+}, {
+"base": "StatusEffect",
+"class": "ImmunityEffect",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/ImmunityEffect.gd"
+}, {
+"base": "BaseAi",
+"class": "Kamikaze",
+"language": "GDScript",
+"path": "res://source/actors/ais/Kamikaze.gd"
+}, {
+"base": "Area2D",
+"class": "Key",
+"language": "GDScript",
+"path": "res://source/objects/doors/Key.gd"
+}, {
+"base": "Node2D",
+"class": "LinkedStairs",
+"language": "GDScript",
+"path": "res://source/objects/stairs/LinkedStairs.gd"
+}, {
+"base": "Area2D",
+"class": "PitTrap",
+"language": "GDScript",
+"path": "res://source/objects/traps/PitTrap.gd"
+}, {
+"base": "Node2D",
+"class": "PortalOneWay",
+"language": "GDScript",
+"path": "res://source/objects/portals/PortalOneWay.gd"
+}, {
+"base": "Node2D",
+"class": "PortalTwoWay",
+"language": "GDScript",
+"path": "res://source/objects/portals/PortalTwoWay.gd"
+}, {
+"base": "Node",
+"class": "SceneData",
+"language": "GDScript",
+"path": "res://source/SceneData.gd"
+}, {
+"base": "CanvasLayer",
+"class": "SceneTransitor",
+"language": "GDScript",
+"path": "res://source/levels/levelHelpers/SceneTransitor.gd"
+}, {
+"base": "Node",
+"class": "Skill",
+"language": "GDScript",
+"path": "res://source/abilities/skills/Skill.gd"
+}, {
+"base": "Sprite",
+"class": "SkillAnimation",
+"language": "GDScript",
+"path": "res://assets/animations/skills/SkillAnimation.gd"
+}, {
+"base": "HBoxContainer",
+"class": "SkillBar",
+"language": "GDScript",
+"path": "res://source/hud/bars/SkillBar.gd"
+}, {
+"base": "Node",
+"class": "SkillSet",
+"language": "GDScript",
+"path": "res://source/abilities/skillSets/SkillSet.gd"
+}, {
+"base": "TextureProgress",
+"class": "SkillSlot",
+"language": "GDScript",
+"path": "res://source/hud/elements/SkillSlot.gd"
+}, {
+"base": "BaseAi",
+"class": "Sniper",
+"language": "GDScript",
+"path": "res://source/actors/ais/Sniper.gd"
+}, {
+"base": "Node2D",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://source/objects/spawners/Spawner.gd"
+}, {
+"base": "Node2D",
+"class": "Split",
+"language": "GDScript",
+"path": "res://source/abilities/skills/Split.gd"
+}, {
+"base": "Area2D",
+"class": "Stair",
+"language": "GDScript",
+"path": "res://source/objects/stairs/Stair.gd"
+}, {
+"base": "Sprite",
+"class": "StatusAnimation",
+"language": "GDScript",
+"path": "res://assets/animations/statusEffectAnimations/StatusAnimation.gd"
+}, {
+"base": "Node",
+"class": "StatusEffect",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/StatusEffect.gd"
+}, {
+"base": "Node2D",
+"class": "StatusEffectAnimationManager",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/StatusEffectAnimationManager.gd"
+}, {
+"base": "HBoxContainer",
+"class": "StatusEffectBar",
+"language": "GDScript",
+"path": "res://source/hud/bars/StatusEffectBar.gd"
+}, {
+"base": "Node",
+"class": "StatusEffectManager",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/StatusEffectManager.gd"
+}, {
+"base": "TextureProgress",
+"class": "StatusEffectSlot",
+"language": "GDScript",
+"path": "res://source/hud/elements/StatusEffectSlot.gd"
+}, {
+"base": "StatusAnimation",
+"class": "StealthAnimation",
+"language": "GDScript",
+"path": "res://assets/animations/statusEffectAnimations/StealthAnimation.gd"
+}, {
+"base": "StatusEffect",
+"class": "StealthEffect",
+"language": "GDScript",
+"path": "res://source/abilities/statusEffect/StealthEffect.gd"
+}, {
+"base": "Area2D",
+"class": "SuicideExplosion",
+"language": "GDScript",
+"path": "res://source/abilities/skills/SuicideExplosion.gd"
+}, {
+"base": "TextureProgress",
+"class": "ValueBar",
+"language": "GDScript",
+"path": "res://source/hud/bars/ValueBar.gd"
+}, {
+"base": "Area2D",
+"class": "VaporBlast",
+"language": "GDScript",
+"path": "res://source/abilities/skills/VaporBlast.gd"
+} ]
+_global_script_class_icons={
+"Actor": "",
+"ActorStatistics": "",
+"AggressiveBoss": "",
+"Animator": "",
+"Attribute": "",
+"AttributeModifier": "",
+"BaseAi": "",
+"BaseLevel": "",
+"BasePlayer": "",
+"BigFireball": "",
+"Boss1": "",
+"BurningEffect": "",
+"Charge": "",
+"Cooldown": "",
+"CurseOfWeakness": "",
+"Dash": "",
+"DebugDrawNode": "",
+"Door": "",
+"DoorAndKey": "",
+"DoorAndKillable": "",
+"Fighter": "",
+"FireArea": "",
+"FireCrush": "",
+"FireCrushing": "",
+"FireNova": "",
+"FireSkillSet": "",
+"Fireball": "",
+"FrozenEffect": "",
+"HUD": "",
+"HealthBox": "",
+"ImmunityEffect": "",
+"Kamikaze": "",
+"Key": "",
+"LinkedStairs": "",
+"PitTrap": "",
+"PortalOneWay": "",
+"PortalTwoWay": "",
+"SceneData": "",
+"SceneTransitor": "",
+"Skill": "",
+"SkillAnimation": "",
+"SkillBar": "",
+"SkillSet": "",
+"SkillSlot": "",
+"Sniper": "",
+"Spawner": "",
+"Split": "",
+"Stair": "",
+"StatusAnimation": "",
+"StatusEffect": "",
+"StatusEffectAnimationManager": "",
+"StatusEffectBar": "",
+"StatusEffectManager": "",
+"StatusEffectSlot": "",
+"StealthAnimation": "",
+"StealthEffect": "",
+"SuicideExplosion": "",
+"ValueBar": "",
+"VaporBlast": ""
+}
+
+[application]
+
+config/name="Conquest"
+run/main_scene="res://source/menus/MainMenu.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Rules="*res://source/Rules.gd"
+SceneManager="*res://source/SceneManager.tscn"
+MusicManager="*res://audio/MusicManager.tscn"
+Algorithm="*res://source/Algorithm.gd"
+
+[debug]
+
+gdscript/warnings/unused_class_variable=true
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/unsafe_cast=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "btree" )
+
+[input]
+
+skill1={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill4={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+skill3={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="actors"
+2d_physics/layer_3="projectiles"
+2d_physics/layer_4="lootables"
+2d_physics/layer_6="water"
+
+[physics]
+
+2d/default_gravity=0
+2d/default_gravity_vector=Vector2( 0, 0 )
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

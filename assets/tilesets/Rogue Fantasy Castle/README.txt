@@ -1,0 +1,6 @@
+Source :
+https://szadiart.itch.io/rogue-fantasy-castle
+
+--- License for Everyone ---
+
+Public domain and free to use, personal or commercial.  Credit is not required but appreciated. You can edit,  but not resell the asset pack (original or changed).

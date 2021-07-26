@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://source/abilities/skills/SuicideExplosion.gd" type="Script" id=1]
+[ext_resource path="res://assets/animations/skills/FireExplosion.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/sfx/soft_blast.wav" type="AudioStream" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 99.1942
+
+[node name="SuicideExplosion" type="Area2D"]
+monitorable = false
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0.445404, 2.22726 )
+scale = Vector2( 4.32695, 4.32695 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://source/abilities/skills/FireCrushing.gd" type="Script" id=1]
+[ext_resource path="res://source/abilities/skills/FireCrush.gd" type="Script" id=2]
+[ext_resource path="res://assets/animations/skills/Fireball003.tscn" type="PackedScene" id=3]
+[ext_resource path="res://audio/sfx/fire002.wav" type="AudioStream" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.3471
+
+[node name="FireCrushing" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="UnclockwiseCrush" type="Area2D" parent="."]
+scale = Vector2( 0.640055, 0.640055 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UnclockwiseCrush"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="UnclockwiseCrush" instance=ExtResource( 3 )]
+rotation = 1.5708
+scale = Vector2( 1.5, 1.5 )
+
+[node name="ClockwiseCrush" type="Area2D" parent="."]
+scale = Vector2( 0.640055, 0.640055 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClockwiseCrush"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="ClockwiseCrush" instance=ExtResource( 3 )]
+rotation = 1.5708
+scale = Vector2( 1.5, 1.5 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 2.3
+bus = "SFX"
